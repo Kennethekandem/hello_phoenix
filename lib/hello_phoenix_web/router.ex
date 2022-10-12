@@ -25,6 +25,9 @@ defmodule HelloPhoenixWeb.Router do
     get "/hello", HelloPhoenixController, :index
     get "/hello/:messenger", HelloPhoenixController, :show
 
+    # products resource route
+    resources "/products", ProductController
+
    # adding a resource
    resources "/users", UserController
   end

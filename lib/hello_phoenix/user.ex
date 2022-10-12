@@ -3,7 +3,7 @@ defmodule HelloPhoenix.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :boi, :string
+    field :bio, :string
     field :email, :string
     field :name, :string
     field :number_of_pets, :integer
@@ -14,7 +14,10 @@ defmodule HelloPhoenix.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :boi, :number_of_pets])
-    |> validate_required([:name, :email, :boi, :number_of_pets])
+    |> cast(attrs, [:name, :email, :bio, :number_of_pets])
+    |> validate_required([:name, :email, :bio, :number_of_pets])
+    |> validate_length(:bio, min: 2)
+    |> validate_length(:bio, max: 140)
+    |> validate_format(:email, ~r/@/)
   end
 end

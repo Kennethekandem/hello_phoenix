@@ -7,7 +7,7 @@ defmodule HelloPhoenixWeb.PageController do
     conn
     |> put_flash(:info, "Welcome to Phoenix, from flash info!")
     |> put_flash(:error, "Let's pretend we have an error!")
-    render(conn, "index.json", username: "Keldy", pages: pages)
+    render(conn, "index.html", username: "Keldy", pages: pages)
     # |> redirect(to: Routes.page_path(conn, :redirect_test))
   end
 
